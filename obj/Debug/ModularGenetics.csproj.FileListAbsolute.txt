@@ -1,0 +1,6 @@
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\bin\Debug\ModularGenetics.dll
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\bin\Debug\ModularGenetics.pdb
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\obj\Debug\ModularGenetics.csprojAssemblyReference.cache
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\obj\Debug\ModularGenetics.csproj.CoreCompileInputs.cache
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\obj\Debug\ModularGenetics.dll
+C:\Users\rgoul\Documents\Visual Studio 2017\Projects\ModularGenetics\ModularGenetics\obj\Debug\ModularGenetics.pdb
