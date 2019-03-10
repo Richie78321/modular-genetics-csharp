@@ -27,7 +27,7 @@ namespace ModularGenetics.AI
 
         public SequentialModel DeployModel()
         {
-
+            return new SequentialModel(computationModels.ToArray());
         }
     }
 }

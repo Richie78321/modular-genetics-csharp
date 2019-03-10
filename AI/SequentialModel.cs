@@ -6,23 +6,19 @@ using System.Threading.Tasks;
 
 namespace ModularGenetics.AI
 {
-    class SequentialModel : Phenotype
+    class SequentialModel : PhenotypeGroup
     {
-        public override int GenomeLengthRequirement => throw new NotImplementedException();
-
-        public override Phenotype Clone(Phenotype otherParent)
+        private ComputationModel[] computationModels;
+        public SequentialModel(ComputationModel[] computationModels) : base(computationModels)
         {
-            throw new NotImplementedException();
+            this.computationModels = computationModels;
         }
 
-        public override bool Equals(Phenotype phenotype)
+        public object Transform(object input)
         {
-            throw new NotImplementedException();
-        }
-
-        protected override void HandleIncomingGenome(GeneticSequence[] geneticSequences)
-        {
-            throw new NotImplementedException();
+            object nextInput = input;
+            for (int i = 0; i < computationModels.Length; i++) nextInput = computationModels[i].Transform(nextInput);
+            return nextInput;
         }
     }
 }
