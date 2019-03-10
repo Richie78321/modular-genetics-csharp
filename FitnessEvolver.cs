@@ -8,6 +8,17 @@ namespace ModularGenetics
 {
     public abstract class FitnessEvolver<D>
     {
+        /// <summary>
+        /// Evolves a generation of FitnessEvolvers.
+        /// </summary>
+        /// <typeparam name="T">The type of FitnessEvolvers to be evolved.</typeparam>
+        /// <param name="generation">The generation of FitnessEvolvers.</param>
+        /// <param name="selectionPercentage">The percentage of the fittest within the generation that will be selected for breeding in the next generation.</param>
+        /// <param name="mutationRate">The mutation rate to be used while breeding the next generation.</param>
+        /// <param name="fittestMember">The fittest member of the evaluated generation.</param>
+        /// <param name="random">The random to be used for breeding and selection.</param>
+        /// <param name="multithreaded">Whether the evaluation processes should happen on multiple threads.</param>
+        /// <returns>Returns the evolved generation.</returns>
         public static T[] EvolveGeneration<T>(T[] generation, double selectionPercentage, double mutationRate, out MemberEvaluation<T, D> fittestMember, Random random, bool multithreaded = false) where T : FitnessEvolver<D>, new()
         {
             //Evaluate members
@@ -53,6 +64,13 @@ namespace ModularGenetics
             return newGeneration.ToArray();
         }
 
+        /// <summary>
+        /// Performs a weighted selection of a set of evaluated members.
+        /// </summary>
+        /// <typeparam name="T">The type of FitnessEvolver.</typeparam>
+        /// <param name="selectedMembers">The set of evaluated members.</param>
+        /// <param name="random">The random to be used for selection.</param>
+        /// <returns>Returns the selected FitnessEvolver</returns>
         private static T WeightedSelect<T>(MemberEvaluation<T, D>[] selectedMembers, Random random) where T : FitnessEvolver<D>
         {
             double totalFitness = 0;
@@ -72,23 +90,44 @@ namespace ModularGenetics
         //Object
         protected FitnessEvolver() { }
 
+        /// <summary>
+        /// Creates a fitness evolver with a specified ModularMember.
+        /// </summary>
+        /// <param name="modularMember">The ModularMember to be used.</param>
         public FitnessEvolver(ModularMember modularMember)
         {
             SetModularMember(modularMember);
         }
 
+        /// <summary>
+        /// The task used to determine the fitness of the ModularMember.
+        /// </summary>
+        /// <returns>Returns the fitness of the ModularMember (higher is better).</returns>
         public abstract double DetermineFitness();
 
         private ModularMember modularMember;
         public ModularMember ModularMember => modularMember;
+        /// <summary>
+        /// Sets the ModularMember (used for breeding).
+        /// </summary>
+        /// <param name="modularMember">The ModularMember to be set.</param>
         private void SetModularMember(ModularMember modularMember)
         {
             if (!modularMember.GenomeAssigned) throw new Exception("Genome has not been assigned to modular member!");
             this.modularMember = modularMember;
         }
 
+        /// <summary>
+        /// Gets the data that should be passed from parent to child.
+        /// </summary>
+        /// <returns>Returns the data.</returns>
         protected abstract D GetData();
 
+        /// <summary>
+        /// Sets the data that should be given from parents.
+        /// </summary>
+        /// <param name="parent1Data">The first parent's data.</param>
+        /// <param name="parent2Data">The second parent's data.</param>
         protected abstract void SetData(D parent1Data, D parent2Data);
     }
 

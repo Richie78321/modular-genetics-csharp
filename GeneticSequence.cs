@@ -8,6 +8,13 @@ namespace ModularGenetics
 {
     public class GeneticSequence
     {
+        /// <summary>
+        /// Performs crossover breeding between two GeneticSequences.
+        /// </summary>
+        /// <param name="sequence1">The first sequence.</param>
+        /// <param name="sequence2">The second sequence.</param>
+        /// <param name="random">The random to be used for the random crossover.</param>
+        /// <returns>Returns the two new genetic sequences.</returns>
         public static GeneticSequence[] Crossover(GeneticSequence sequence1, GeneticSequence sequence2, Random random)
         {
             if (sequence1.CanBreedWith(sequence2))
@@ -35,6 +42,11 @@ namespace ModularGenetics
         private bool[] binarySequence;
         public bool[] BinarySequence => (bool[])binarySequence.Clone();
 
+        /// <summary>
+        /// Creates a random genetic sequence of a defined length.
+        /// </summary>
+        /// <param name="sequenceLength">The length of the genetic sequence.</param>
+        /// <param name="random">The random to be used for random generation.</param>
         public GeneticSequence(int sequenceLength, Random random)
         {
             //Ensure valid length
@@ -53,6 +65,10 @@ namespace ModularGenetics
             SetValues();
         }
 
+        /// <summary>
+        /// Creates a genetic sequence from an existing boolean array.
+        /// </summary>
+        /// <param name="binarySequence">The boolean array.</param>
         public GeneticSequence(bool[] binarySequence)
         {
             //Ensure valid length
@@ -69,6 +85,9 @@ namespace ModularGenetics
         private double portionValue;
         public double PortionValue => portionValue;
 
+        /// <summary>
+        /// Bakes the values of the GeneticSequence.
+        /// </summary>
         private void SetValues()
         {
             intValue = 0;
@@ -77,11 +96,22 @@ namespace ModularGenetics
             portionValue = (double)intValue / MaxIntValue;
         }
 
+        /// <summary>
+        /// Determines if this GeneticSequence can be bred with another sequence.
+        /// </summary>
+        /// <param name="partner">The other GeneticSequence.</param>
+        /// <returns>Returns whether the sequences are breedable.</returns>
         public bool CanBreedWith(GeneticSequence partner)
         {
             return (binarySequence.Length == partner.binarySequence.Length);
         }
 
+        /// <summary>
+        /// Performs a bitwise mutation on the genetic sequence.
+        /// </summary>
+        /// <param name="mutationRate">The rate of mutation (0 to 1).</param>
+        /// <param name="random">The random to be used for the random mutations.</param>
+        /// <returns></returns>
         public GeneticSequence BitwiseMutate(double mutationRate, Random random)
         {
             bool[] sequenceCopy = new bool[binarySequence.Length];

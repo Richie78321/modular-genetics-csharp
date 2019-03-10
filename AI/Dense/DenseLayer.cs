@@ -14,6 +14,11 @@ namespace ModularGenetics.AI.Dense
 
         private int neurons;
         private ActivationFunction activationFunction;
+        /// <summary>
+        /// Creates a new dense neural network layer with a specified number of neurons.
+        /// </summary>
+        /// <param name="neurons">The neurons in the dense layer.</param>
+        /// <param name="activationFunction">The activation function to be used.</param>
         public DenseLayer(int neurons, ActivationFunction activationFunction)
         {
             this.neurons = neurons;
@@ -52,6 +57,7 @@ namespace ModularGenetics.AI.Dense
 
         protected override void HandleDeploy(int[] inputShape)
         {
+            if (inputShape.Length != 1) throw new Exception("The input into a dense layer must be of a one-dimensional shape.");
         }
 
         protected override void HandleIncomingGenome(GeneticSequence[] geneticSequences)

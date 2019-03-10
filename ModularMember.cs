@@ -8,6 +8,14 @@ namespace ModularGenetics
 {
     public class ModularMember
     {
+        /// <summary>
+        /// Breeds two ModularMembers and produces two children.
+        /// </summary>
+        /// <param name="parent1">The first parent.</param>
+        /// <param name="parent2">The second parent.</param>
+        /// <param name="mutationRate">The mutation rate during breeding.</param>
+        /// <param name="random">The random to be used while breeding.</param>
+        /// <returns>Returns the two children.</returns>
         public static ModularMember[] BreedMembers(ModularMember parent1, ModularMember parent2, double mutationRate, Random random)
         {
             //Ensure breedable
@@ -44,6 +52,13 @@ namespace ModularGenetics
             else throw new Exception("Provided parents are not breedable.");
         }
 
+        /// <summary>
+        /// Creates a random genome for a set of phenotypes.
+        /// </summary>
+        /// <param name="phenotypes">The set of phenotypes.</param>
+        /// <param name="random">The random to be used for the random generation of genetic sequences.</param>
+        /// <param name="sequenceBitLength">The bit length of the random genetic sequences.</param>
+        /// <returns>Returns the randomly-generated genome.</returns>
         private static GeneticSequence[] GetRandomGenome(Phenotype[] phenotypes, Random random, int sequenceBitLength)
         {
             int sequenceLength = 0;
@@ -59,6 +74,12 @@ namespace ModularGenetics
         private Phenotype[] phenotypes;
         public Phenotype[] Phenotypes => phenotypes;
 
+        /// <summary>
+        /// Creates a new ModularMember with a randomly-initialized genome.
+        /// </summary>
+        /// <param name="phenotypes">The phenotypes of the ModularMember.</param>
+        /// <param name="random">The random to be used for the random generation of the genome.</param>
+        /// <param name="sequenceBitLength">The length of the randomly-generated genetic sequences.</param>
         public ModularMember(Phenotype[] phenotypes, Random random, int sequenceBitLength = 8)
         {
             this.phenotypes = phenotypes;
@@ -67,6 +88,10 @@ namespace ModularGenetics
             AssignGenome(GetRandomGenome(phenotypes, random, sequenceBitLength));
         }
 
+        /// <summary>
+        /// Creates a new ModularMember but does not initialize the genome.
+        /// </summary>
+        /// <param name="phenotypes">The phenotypes of the ModularMember.</param>
         public ModularMember(Phenotype[] phenotypes)
         {
             this.phenotypes = phenotypes;
@@ -75,6 +100,11 @@ namespace ModularGenetics
         private bool genomeAssigned = false;
         public bool GenomeAssigned => genomeAssigned;
         private GeneticSequence[] genome;
+        /// <summary>
+        /// Assigns a genome to the ModularMember.
+        /// </summary>
+        /// <param name="genome">The genome to be assigned.</param>
+        /// <returns>Returns whether the assignment was successful.</returns>
         public bool AssignGenome(GeneticSequence[] genome)
         {
             int sequenceLength = 0;
@@ -103,6 +133,11 @@ namespace ModularGenetics
             }
         }
 
+        /// <summary>
+        /// Determines if two ModularMembers can breed.
+        /// </summary>
+        /// <param name="member">The other ModularMember.</param>
+        /// <returns>Returns whether the ModularMembers are breedable.</returns>
         public bool CanBreedWith(ModularMember member)
         {
             //Compare lengths
