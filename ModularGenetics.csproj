@@ -41,18 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI\Convolutional\ConvFilter.cs" />
-    <Compile Include="AI\Convolutional\ConvolutionalNetwork.cs" />
-    <Compile Include="AI\Convolutional\ConvolutionArchitecture.cs" />
-    <Compile Include="AI\Convolutional\IStackAction.cs" />
-    <Compile Include="AI\Convolutional\NormalizationLayer.cs" />
-    <Compile Include="AI\Convolutional\PoolingLayer.cs" />
-    <Compile Include="AI\Feedforward\Dendrite.cs" />
-    <Compile Include="AI\Feedforward\FeedforwardNetwork.cs" />
-    <Compile Include="AI\Feedforward\Layer.cs" />
-    <Compile Include="AI\Feedforward\NetworkArchitecture.cs" />
-    <Compile Include="AI\Feedforward\NetworkPosition.cs" />
-    <Compile Include="AI\Feedforward\Neuron.cs" />
+    <Compile Include="AI\ComputationModel.cs" />
+    <Compile Include="AI\Dense\DenseLayer.cs" />
+    <Compile Include="AI\IActivationFunction.cs" />
+    <Compile Include="AI\SequentialModel.cs" />
+    <Compile Include="AI\SequentialModelFactory.cs" />
     <Compile Include="FitnessEvolver.cs" />
     <Compile Include="GeneticSequence.cs" />
     <Compile Include="ModularMember.cs" />

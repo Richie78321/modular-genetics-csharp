@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModularGenetics.AI.Convolutional
+namespace ModularGenetics.AI
 {
-    interface IStackAction
+    interface IActivationFunction
     {
-        double[][,] StackAction(double[][,] inputStack);
+        
     }
 }
