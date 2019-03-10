@@ -34,7 +34,7 @@ namespace ModularGenetics.AI.Dense
             GeneticSequence[] geneticSequences = GeneticSequences;
             for (int i = 0; i < layerOutput.Length; i++)
             {
-                layerOutput[i] = RunNeuron((GeneticSequence[])geneticSequences.Skip(i * (inputShape[0] + 1)).Take(inputShape[0] + 1), layerInput); 
+                layerOutput[i] = RunNeuron(geneticSequences.Skip(i * (inputShape[0] + 1)).Take(inputShape[0] + 1).ToArray(), layerInput); 
             }
 
             return layerOutput;

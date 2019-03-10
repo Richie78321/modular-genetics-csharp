@@ -48,7 +48,7 @@ namespace ModularGenetics
             for (int i = 0; i < phenotypes.Length; i++)
             {
                 int lengthRequirement = phenotypes[i].GenomeLengthRequirement;
-                phenotypes[i].SetGenome((GeneticSequence[])geneticSequences.Skip(nextIndex).Take(lengthRequirement));
+                phenotypes[i].SetGenome(geneticSequences.Skip(nextIndex).Take(lengthRequirement).ToArray());
                 nextIndex += lengthRequirement;
             }
         }
