@@ -49,6 +49,7 @@
     <Compile Include="GeneticSequence.cs" />
     <Compile Include="ModularMember.cs" />
     <Compile Include="Phenotype.cs" />
+    <Compile Include="PhenotypeGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

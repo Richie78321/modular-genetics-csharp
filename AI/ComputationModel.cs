@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModularGenetics.AI
 {
-    abstract class ComputationModel : Phenotype
+    public abstract class ComputationModel : Phenotype
     {
         public delegate double ActivationFunction(double input);
         public static double ReLUActivation(double input)

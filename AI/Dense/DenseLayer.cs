@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModularGenetics.AI.Dense
 {
-    class DenseLayer : ComputationModel
+    public class DenseLayer : ComputationModel
     {
         public override int[] OutputShape => new int[] { neurons };
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModularGenetics.AI
 {
-    class SequentialModelFactory
+    public class SequentialModelFactory
     {
         private int[] inputShape;
         public SequentialModelFactory(int[] inputShape)

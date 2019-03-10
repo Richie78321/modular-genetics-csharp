@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModularGenetics.AI
 {
-    class SequentialModel : PhenotypeGroup
+    public class SequentialModel : PhenotypeGroup
     {
         private ComputationModel[] computationModels;
         public SequentialModel(ComputationModel[] computationModels) : base(computationModels)
