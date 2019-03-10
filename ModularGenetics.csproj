@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="AI\ComputationModel.cs" />
     <Compile Include="AI\Dense\DenseLayer.cs" />
-    <Compile Include="AI\IActivationFunction.cs" />
     <Compile Include="AI\SequentialModel.cs" />
     <Compile Include="AI\SequentialModelFactory.cs" />
     <Compile Include="FitnessEvolver.cs" />
