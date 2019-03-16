@@ -1,0 +1,6 @@
+C:\Users\rgoul\Desktop\modular-genetics\obj\Debug\ModularGenetics.csprojAssemblyReference.cache
+C:\Users\rgoul\Desktop\modular-genetics\obj\Debug\ModularGenetics.csproj.CoreCompileInputs.cache
+C:\Users\rgoul\Desktop\modular-genetics\bin\Debug\ModularGenetics.dll
+C:\Users\rgoul\Desktop\modular-genetics\bin\Debug\ModularGenetics.pdb
+C:\Users\rgoul\Desktop\modular-genetics\obj\Debug\ModularGenetics.dll
+C:\Users\rgoul\Desktop\modular-genetics\obj\Debug\ModularGenetics.pdb
