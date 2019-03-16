@@ -14,6 +14,18 @@ namespace ModularGenetics.AI
             if (input > 0) return input;
             else return 0;
         }
+        public static double LinearActivation(double input)
+        {
+            return input;
+        }
+        public static double[] SoftmaxFunction(double[] input, double baseVal = Math.E)
+        {
+            double[] exponentialValues = new double[input.Length];
+            for (int i = 0; i < exponentialValues.Length; i++) exponentialValues[i] = Math.Pow(baseVal, input[i]);
+            double valueSum = exponentialValues.Sum();
+            for (int i = 0; i < exponentialValues.Length; i++) exponentialValues[i] /= valueSum;
+            return exponentialValues;
+        }
 
         //Object
         private bool isDeployed = false;
