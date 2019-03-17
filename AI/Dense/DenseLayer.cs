@@ -66,7 +66,9 @@ namespace ModularGenetics.AI.Dense
 
         public override Phenotype Clone(Phenotype otherParent)
         {
-            return new DenseLayer(neurons, activationFunction);
+            DenseLayer newLayer = new DenseLayer(neurons, activationFunction);
+            newLayer.Deploy(inputShape);
+            return newLayer;
         }
 
         public override bool Equals(Phenotype phenotype)
