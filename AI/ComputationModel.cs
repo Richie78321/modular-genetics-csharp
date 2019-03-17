@@ -26,6 +26,10 @@ namespace ModularGenetics.AI
             for (int i = 0; i < exponentialValues.Length; i++) exponentialValues[i] /= valueSum;
             return exponentialValues;
         }
+        public static double SigmoidActivation(double input)
+        {
+            return 1.0 / (1 + Math.Pow(Math.E, -input));
+        }
 
         //Object
         private bool isDeployed = false;
