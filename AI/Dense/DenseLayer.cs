@@ -34,23 +34,22 @@ namespace ModularGenetics.AI.Dense
             GeneticSequence[] geneticSequences = GeneticSequences;
             for (int i = 0; i < layerOutput.Length; i++)
             {
-                layerOutput[i] = RunNeuron(geneticSequences.Skip(i * (inputShape[0] + 1)).Take(inputShape[0] + 1).ToArray(), layerInput); 
+                layerOutput[i] = RunNeuron(i * (inputShape[0] + 1), layerInput); 
             }
 
             return layerOutput;
         }
 
-        private double RunNeuron(GeneticSequence[] geneticSequences, double[] layerInput)
+        private double RunNeuron(int startIndex, double[] layerInput)
         {
             double weightedSum = 0;
             for (int i = 0; i < layerInput.Length; i++)
             {
                 //Weights
-                double weightValue = (geneticSequences[i].PortionValue * 2) - 1;
-                weightedSum += layerInput[i] * weightValue;
+                weightedSum += layerInput[i] * bakedParameterValues[startIndex + i];
             }
             //Bias
-            weightedSum += (geneticSequences[geneticSequences.Length - 1].PortionValue * 2) - 1;
+            weightedSum += bakedParameterValues[startIndex + layerInput.Length];
 
             return activationFunction(weightedSum);
         }
@@ -60,8 +59,14 @@ namespace ModularGenetics.AI.Dense
             if (inputShape.Length != 1) throw new Exception("The input into a dense layer must be of a one-dimensional shape.");
         }
 
+        private double[] bakedParameterValues = null;
         protected override void HandleIncomingGenome(GeneticSequence[] geneticSequences)
         {
+            bakedParameterValues = new double[geneticSequences.Length];
+            for (int i = 0; i < geneticSequences.Length; i++)
+            {
+                bakedParameterValues[i] = (geneticSequences[i].PortionValue * 2) - 1;
+            }
         }
 
         public override Phenotype Clone(Phenotype otherParent)
