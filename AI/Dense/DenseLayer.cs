@@ -13,6 +13,7 @@ namespace ModularGenetics.AI.Dense
         public override int GenomeLengthRequirement => neurons * (inputShape[0] + 1);
 
         private int neurons;
+        public int Neurons => neurons;
         private ActivationFunction activationFunction;
         /// <summary>
         /// Creates a new dense neural network layer with a specified number of neurons.
@@ -60,6 +61,7 @@ namespace ModularGenetics.AI.Dense
         }
 
         private double[] bakedParameterValues = null;
+        public double[] BakedParameterValues => bakedParameterValues;
         protected override void HandleIncomingGenome(GeneticSequence[] geneticSequences)
         {
             bakedParameterValues = new double[geneticSequences.Length];
