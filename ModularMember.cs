@@ -97,9 +97,11 @@ namespace ModularGenetics
             this.phenotypes = phenotypes;
         }
 
-        private bool genomeAssigned = false;
-        public bool GenomeAssigned => genomeAssigned;
+        private bool isGenomeAssigned = false;
+        public bool IsGenomeAssigned => isGenomeAssigned;
         private GeneticSequence[] genome;
+        public GeneticSequence[] Genome => genome;
+
         /// <summary>
         /// Assigns a genome to the ModularMember.
         /// </summary>
@@ -111,7 +113,7 @@ namespace ModularGenetics
             for (int i = 0; i < phenotypes.Length; i++) sequenceLength += phenotypes[i].GenomeLengthRequirement;
 
             //Ensure correct length and not already assigned
-            if (genomeAssigned || genome.Length != sequenceLength) return false;
+            if (isGenomeAssigned || genome.Length != sequenceLength) return false;
             else
             {
                 int sequenceIndex = 0;
@@ -127,7 +129,7 @@ namespace ModularGenetics
                 }
 
                 this.genome = genome;
-                genomeAssigned = true;
+                isGenomeAssigned = true;
 
                 return true;
             }

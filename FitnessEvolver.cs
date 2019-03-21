@@ -113,7 +113,7 @@ namespace ModularGenetics
         /// <param name="modularMember">The ModularMember to be set.</param>
         private void SetModularMember(ModularMember modularMember)
         {
-            if (!modularMember.GenomeAssigned) throw new Exception("Genome has not been assigned to modular member!");
+            if (!modularMember.IsGenomeAssigned) throw new Exception("Genome has not been assigned to modular member!");
             this.modularMember = modularMember;
         }
 
