@@ -26,12 +26,6 @@ namespace ModularGenetics
             if (multithreaded) Parallel.For(0, generation.Length, (i) => { memberEvaluations[i] = new MemberEvaluation<T, D>(generation[i], generation[i].DetermineFitness()); });
             else for (int i = 0; i < generation.Length; i++) memberEvaluations[i] = new MemberEvaluation<T, D>(generation[i], generation[i].DetermineFitness());
 
-            //TEST AVERAGE
-            double average = 0;
-            for (int i = 0; i < memberEvaluations.Length; i++) average += memberEvaluations[i].Fitness;
-            average /= memberEvaluations.Length;
-            Console.WriteLine(average);
-
             //Sort members
             Array.Sort(memberEvaluations, delegate (MemberEvaluation<T, D> x, MemberEvaluation<T, D> y) { return y.Fitness.CompareTo(x.Fitness); });
 
